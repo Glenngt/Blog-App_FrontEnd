@@ -18,7 +18,7 @@ const AddHandler=(event)=>{
 
 const addValue=()=>{
     console.log(addData)
-    axios.post("http://127.0.0.1:8000/api1/add/",addData).then(
+    axios.post("http://127.0.0.1:8000/api/add/",addData).then(
         (response)=>{
             alert(response.data.status)
         }
