@@ -1,13 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const BlogHeader = () => {
+
+    const navigate = useNavigate()
+
+    if(!sessionStorage.getItem("id")){
+        navigate("/")
+    }
+
   return (
     <div>
         
         <nav class="navbar navbar-expand-lg bg-secondary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><b>BLOG-POST APP</b></a>
+                <a class="navbar-brand" href="#"><b>Hi {sessionStorage.getItem("name")}</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -21,6 +28,9 @@ const BlogHeader = () => {
                         </li>
                         <li class="nav-item">
                         <Link class="nav-link" to="/ViewAll">VIEW ALL POST</Link>
+                        </li>
+                        <li class="nav-item">
+                        <Link class="nav-link" to="/profile">VIEW MY PROFILE</Link>
                         </li>
                     </ul>
                 </div>
