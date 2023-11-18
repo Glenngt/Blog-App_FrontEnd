@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -18,11 +19,26 @@ const Login = () => {
 
     const readValue=()=>{
         console.log(inputData)
-        if (inputData.email == "admin@gmail.com" && inputData.pswd == "12345") {
-            navigate('/Add')
-        } else {
-            alert("Invalid Credentials.")
-        }
+        axios.post("http://127.0.0.1:8000/api1/loginCheck/",inputData).then(
+            (response)=>{
+                console.log(response.data)
+                if (response.data.length>0) {
+                    
+                    const getId = response.data[0].id
+                    const getName = response.data[0].name
+
+                    sessionStorage.setItem("id",getId)
+                    sessionStorage.setItem("name",getName)
+
+                    navigate('/Add')
+
+                } else {
+
+                    alert("Invalid Credentials.")
+                    
+                }
+            }
+        )
     }
 
   return (
@@ -30,10 +46,12 @@ const Login = () => {
         
         <br></br>
         <div className="container">
+            
             <div className="row">
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                 <div className="row g-3">
+                    
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                         <label htmlFor="" className="form-label">Email ID :</label>
@@ -58,6 +76,7 @@ const Login = () => {
 
                 </div>
             </div>
+    
         </div>
 
     </div>

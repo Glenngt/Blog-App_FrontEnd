@@ -20,7 +20,7 @@ const regValue=()=>{
     console.log(registerData)
     axios.post("http://127.0.0.1:8000/api1/add/",registerData).then(
         (response)=>{
-            alert(response.data.status)
+            alert(response.data.Status)
         }
     )
 }
@@ -33,25 +33,25 @@ const regValue=()=>{
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                 <div className="row g-3">
-                    <div className="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                         <label htmlFor="" className="form-label">Name :</label>
                         <input type="text" className="form-control" name="name" value={registerData.name} onChange={RegisterHandler} />
 
                     </div>
-                    <div className="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         
                         <label htmlFor="" className="form-label">Profile Pic :</label>
-                        <input type="file" name="pic" id="" className="form-control" value={registerData.pic} onChange={RegisterHandler} />
+                        <input type="text" className="form-control" name="pic" value={registerData.pic} onChange={RegisterHandler} />
 
                     </div>
-                    <div className="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         
                         <label htmlFor="" className="form-label">Email Id :</label>
                         <input type="text" className="form-control" name="email" value={registerData.email} onChange={RegisterHandler} />
 
                     </div>
-                    <div className="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         
                         <label htmlFor="" className="form-label">Password :</label>
                         <input type="password" name="pswd" id="" className="form-control" value={registerData.pswd} onChange={RegisterHandler} />
@@ -63,7 +63,7 @@ const regValue=()=>{
                         </div>
                     </div>
                     
-                    <div className="col col-12 col-sm-12col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <a href="/">Back To Login</a>
 
                     </div>
